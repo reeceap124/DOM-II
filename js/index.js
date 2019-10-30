@@ -15,7 +15,7 @@ body.addEventListener('keydown', ()=>{
 
 const adventureImg = document.querySelector('.adventureImg');
 window.addEventListener('wheel', ()=>{
-    adventureImg.src = "https://images.unsplash.com/photo-1509248961158-e54f6934749c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1022&q=80";
+    adventureImg.src = "img/scaryFace.jpg";
 
 })
 
