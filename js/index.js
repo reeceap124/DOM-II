@@ -19,14 +19,14 @@ window.addEventListener('wheel', ()=>{
 
 })
 
-let isScrolling;
+let scrolling;
 window.addEventListener('scroll', function ( event ) {
 
-	// Clear our timeout throughout the scroll
-	window.clearTimeout( isScrolling );
+	// listens for the scroll event and when it hears it, clears the timeout counter (scrolling in this case)
+	window.clearTimeout( scrolling );
 
-	// Set a timeout to run after scrolling ends
-	isScrolling = setTimeout(function() {
+	// if no scroll event is heard, this counts up to the predefined number and then executes the code
+	scrolling = setTimeout(function() {
 
 		//callback
         adventureImg.src = 'img/adventure.jpg';
@@ -37,20 +37,22 @@ window.addEventListener('scroll', function ( event ) {
 const pElements = document.querySelectorAll('p');
 console.log(pElements)
 let originalText = [];
-pElements.forEach(el => {
+pElements.forEach((el, index)=> {
 
     originalText.push(el.innerText);
+    el.id = index;
     el.addEventListener('mouseover',()=>{
         
         el.textContent = `HIIII!!!`
     })
+
 })
 
 pElements.forEach(el=>{
     el.addEventListener('mouseleave', ()=>{
         el.style.color = 'red'
         el.style.transition = 'color 0.4s'
-        
+        el.innerText = originalText[el.id]
         
     })
 })
